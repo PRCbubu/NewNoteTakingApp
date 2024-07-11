@@ -8,4 +8,6 @@
     <string name="type_something">Type Something...</string>
     <string name="bersyte">bersyte</string>
     <string name="note_title">Note Title</string>
+    <string name="search">Search</string>
+    <string name="save">Save</string>
 </resources>
