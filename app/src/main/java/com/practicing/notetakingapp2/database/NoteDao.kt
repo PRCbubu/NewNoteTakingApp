@@ -22,9 +22,9 @@ interface NoteDao
     suspend fun deleteNote(note: NoteEntity)
 
     @Query("SELECT * FROM notes order by id DESC")
-    suspend fun getAllNotes(): LiveData<List<NoteEntity>>
+    fun getAllNotes(): LiveData<List<NoteEntity>>
 
     @Query("SELECT * FROM notes WHERE Title LIKE :searchQuery OR Body LIKE :searchQuery")
-    fun searchNote(searchQuery: String): LiveData<List<NoteEntity>>
+    fun searchNote(searchQuery: String?): LiveData<List<NoteEntity>>
 
 }
