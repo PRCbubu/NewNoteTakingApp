@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="no_notes_available">No Notes Available!!!</string>
     <string name="image">image</string>
+    <string name="type_your_title">Type Your Title</string>
+    <string name="type_something">Type Something...</string>
 </resources>
