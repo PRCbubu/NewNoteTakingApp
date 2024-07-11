@@ -1,5 +1,6 @@
 package com.practicing.notetakingapp2.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.practicing.notetakingapp2.databinding.NoteLayoutBinding
 import com.practicing.notetakingapp2.model.NoteEntity
+import kotlin.random.Random
 
 class NoteRecyclerAdapter: RecyclerView.Adapter<NoteRecyclerAdapter.NoteViewHolder>()
 {
@@ -27,10 +29,21 @@ class NoteRecyclerAdapter: RecyclerView.Adapter<NoteRecyclerAdapter.NoteViewHold
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return differ.currentList.size
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val currentNote = differ.currentList[position]
+
+        holder.itemBinding.tvNoteTitle.text = currentNote.noteTitle
+        holder.itemBinding.tvNoteBody.text = currentNote.noteBody
+
+        val random = Random()
+        val color = Color.argb(256, random.nextInt(256), random.nextInt(256), random.nextInt(256))
+        holder.itemBinding.ibColor.setBackgroundColor(color)
+        holder.itemView.setOnClickListener {
+            val direction = NoteFragmentDirections.actionNoteFragmentToUpdateNoteFragment(currentNote)
+        }
+
     }
 }
